@@ -2,38 +2,27 @@ import javax.swing.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Solution700  {
+public class Solution700 extends Methods {
     public static void main(String[] args) {
-        
         ArrayList<String> list = new ArrayList<>();
-        list.add("лира");
-        list.add("лава");
-        list.add("работа");
-        list.add("рыбалка");
 
-        list = fix(list);
-
-        for (String s : list) {
-            System.out.println(s);
+        for (int i = 0; i <5 ; i++) {
+            list.add(sc.nextLine());
         }
-    }
-
-    public static ArrayList<String> fix(ArrayList<String> list) {
-        for (int i = 0; i < list.size(); ) {
-            if (list.get(i).contains("р") && list.get(i).contains("л"))
-                i++;
-            else if (list.get(i).contains("л")) {
-                list.add(i, list.get(i));
-                i += 2;
-            } else if (list.get(i).contains("р")) {
-                list.remove(i);
-                i++;
+            ArrayList<String> result = doubleValues(list);
+            for (String s: result) {
+                System.out.println(s);
             }
 
         }
-        return list;
+        public static ArrayList<String> doubleValues(ArrayList<String> list){
+            for (int i = 0; i <list.size() ; i += 2) {
+                list.add(i + 1, list.get(i));
+            }
+            return list;
+        }
     }
-}
+
 
 
 
