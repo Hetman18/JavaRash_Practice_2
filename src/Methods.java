@@ -1,7 +1,8 @@
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Scanner;
 
-public class Scaner extends BaseClass {
+public class Methods extends BaseClass {
     protected static Scanner sc = new Scanner(System.in);
 
     protected static void PrintList(List<Integer> list) {
@@ -9,4 +10,6 @@ public class Scaner extends BaseClass {
             System.out.println(arr);
         }
     }
-}
+
+
+        }

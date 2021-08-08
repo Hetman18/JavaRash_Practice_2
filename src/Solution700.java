@@ -1,23 +1,40 @@
-import java.io.IOException;
+import javax.swing.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Solution700 extends Scaner {
+public class Solution700  {
     public static void main(String[] args) {
-        ArrayList <String> arr = new ArrayList<>();
-        arr.add("мама");
-        arr.add("мыла");
-        arr.add("раму");
-        String word = "именно";
-        arr.add(1, word);
-        arr.add(3, word);
-        arr.add(5, word);
-        for (String arrayList : arr) {
-            System.out.println(arrayList);
+        
+        ArrayList<String> list = new ArrayList<>();
+        list.add("лира");
+        list.add("лава");
+        list.add("работа");
+        list.add("рыбалка");
+
+        list = fix(list);
+
+        for (String s : list) {
+            System.out.println(s);
         }
+    }
+
+    public static ArrayList<String> fix(ArrayList<String> list) {
+        for (int i = 0; i < list.size(); ) {
+            if (list.get(i).contains("р") && list.get(i).contains("л"))
+                i++;
+            else if (list.get(i).contains("л")) {
+                list.add(i, list.get(i));
+                i += 2;
+            } else if (list.get(i).contains("р")) {
+                list.remove(i);
+                i++;
+            }
 
         }
-        }
+        return list;
+    }
+}
+
 
 
 
